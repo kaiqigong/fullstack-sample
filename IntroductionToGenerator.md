@@ -12,7 +12,7 @@ npm install -g generator-angular-fullstack
 ```
 
 ##Client
-###Problem may met during installation:  
+Problem may met during installation:  
 + common.gypi not found
 解决方法(http://jsplus.sinaapp.com/common-gypi-not-found.html)
 + grunt build 的时候报错
@@ -22,15 +22,13 @@ Warning: Loading "less.js" tasks...ERROR
     Warning: Task "less" failed. Use --force to continue.
 ```
 解决方法：
-  + grunt依赖的package没有装上
+	+ grunt依赖的package没有装上
     ```
     cd node_modules/
     npm install
     ```
-  + 缺啥module装啥  
-  `npm install xxx -save`
-###About html5 mode
-You will find that the ugly angular hash in url is gone.  
-It is configed by this line of `$locationProvider.html5Mode true`.  
-[HTML5Mode](https://docs.angularjs.org/guide/$location) may have compatibility issues, so later we may need to changes this.  
+	+ 缺啥module装啥  
+	`npm install xxx -save`
+    
+
 
