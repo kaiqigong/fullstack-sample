@@ -42,7 +42,9 @@ All apis need token except `post /api/user/`
 
 + Response 200 (application/json)
 
-        [{"_id":"53c6078d01e0ea3b79515d9b","provider":"local","name":"Test User","email":"test@test.com","__v":0,"role":"user"},{"_id":"53c6078d01e0ea3b79515d9c","provider":"local","name":"Admin","email":"admin@admin.com","__v":0,"role":"admin"},{"_id":"53c6205601e0ea3b79515d9d","provider":"local","name":"cage","email":"cage@cage.com","__v":0,"role":"user"}]
+        [{"_id":"53c6078d01e0ea3b79515d9b","provider":"local","name":"Test User","email":"test@test.com","__v":0,"role":"user"},
+        {"_id":"53c6078d01e0ea3b79515d9c","provider":"local","name":"Admin","email":"admin@admin.com","__v":0,"role":"admin"},
+        {"_id":"53c6205601e0ea3b79515d9d","provider":"local","name":"cage","email":"cage@cage.com","__v":0,"role":"user"}]
 
 ## User Password [/api/users/{id}/password]
 ### Change Password [POST]
@@ -103,9 +105,14 @@ Qiniu related apis
 
 # Group Organization
 
-## Organization Collection [/api/organization]
+## Organization Collection [/api/organization{?sub}]
+
 ### Get all Organizations [GET]
 
++ Parameters
+
+    + sub (optional, string, ``)
+    
 + Response 200 (application/json)
 
         [Organization,Organization,Organization]
