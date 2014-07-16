@@ -158,6 +158,61 @@ Qiniu related apis
 
 
 
+# Group Classe
+
+## Classe Collection [/api/classes]
+
+### Get all Classes [GET]
+    
++ Response 200 (application/json)
+
+        [Classe,Classe,Classe]
+
+### Create Classe [POST]
+
++ Request (application/json)
+
+    + Header
+    
+            Auth:xxx
+    
+    + Body
+    
+            {"name":"14届物化班",
+            "year-grade":"2014届",
+            "students":['afdaf','qwer','dasf']
+            }
+            
++ Response 200 (application/json)
+        
+        {"_id":"xqwerav",
+        "org_id":"aceqwr",
+        "name":"14届物化班",
+        "year-grade":"2014届",
+        "students":[{"_id":"aeqwraf","name":"张三"},
+            {"_id":"aeqwraf","name":"李四"},
+            {"_id":"aeqwraf","name":"阿毛"}]
+        }
+
+## Classe Detail [/api/classe/{id}]
+
++ Parameters
+
+    + id (required, string, ``)
+
+### Get Classe Detail [GET]
++ Response 200 (application/json)
+
+        {"_id":"xqwerav",
+        "org_id":"aceqwr",
+        "name":"14届物化班",
+        "year-grade":"2014届",
+        "students":[{"_id":"aeqwraf","name":"张三"},
+            {"_id":"aeqwraf","name":"李四"},
+            {"_id":"aeqwraf","name":"阿毛"}]
+        }
+
+
 
 
  
