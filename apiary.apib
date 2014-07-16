@@ -101,4 +101,49 @@ Qiniu related apis
 
             "some/signed/url"
 
+# Group Organization
+
+## Organization Collection [/api/organization]
+### Get all Organizations [GET]
+
++ Response 200 (application/json)
+
+        [Organization,Organization,Organization]
+
+### Create Organization [POST]
+
++ Request (application/json)
+
+    + Header
+    
+            Auth:xxx
+    
+    + Body
+    
+            {"name":"清华",
+            "subDomain":"qinghua",
+            "background":"url",
+            "logo":"url"
+            }
+            
++ Response 200 (application/json)
+        
+        Organization
+
+## Organization Detail [/api/organization/{id}]
+
++ Parameters
+
+    + id (required, string, `me`)
+
+### Get User's Organization [GET]
++ Response 200 (application/json)
+
+        {"name": "清华"}  
+
+
+
+
+
+
  
