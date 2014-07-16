@@ -4,47 +4,80 @@ HOST: http://www.cloud3edu.com
 # cloudedu
 Notes API is a *short texts saving* service similar to its physical paper presence on your table.
 
-# Group Notes(Sample)
-Notes related resources of the **Notes API**
+#API
 
-## Notes Collection [/notes]
-### List all Notes [GET]
-+ Response 200 (application/json)
-
-        [{
-          "id": 1, "title": "Jogging in park"
-        }, {
-          "id": 2, "title": "Pick-up posters from post-office"
-        }]
-
-### Create a Note [POST]
+# Group Auth
+## Providor: Local [/auth/local]
+### Login [POST]
 + Request (application/json)
 
-        { "title": "Buy cheese and bread for breakfast." }
+        {"email":"admin@admin.com","password":"admin"}
 
-+ Response 201 (application/json)
-
-        { "id": 3, "title": "Buy cheese and bread for breakfast." }
-
-## Note [/notes/{id}]
-A single Note object with all its details
-
-+ Parameters
-    + id (required, number, `1`) ... Numeric `id` of the Note to perform action with. Has example value.
-
-### Retrieve a Note [GET]
 + Response 200 (application/json)
 
+        {"token":"dasdfqwerzxvaerqwer"}
+
+#Group User
+All apis need token except `post /api/user/`  
+## User Collection [/api/users]
+### Create [POST]
++ Request (application/json)
+    
     + Header
 
-            X-My-Header: The Value
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI1M2M2MDc4ZDAxZTBlYTNiNzk1MTVkOWMiLCJpYXQiOjE0MDU0ODkwNTIwMzYsImV4cCI6MTQwNTUwNzA1MjAzNn0.SABEI5TfvFExJz0T87eHFKZiEWF1BP-VwYKeI6yZ-sU
 
     + Body
 
-            { "id": 2, "title": "Pick-up posters from post-office" }
+            {"email":"admin@admin.com","name":"admin",password":"admin"}
 
-### Remove a Note [DELETE]
-+ Response 204
++ Response 200 (application/json)
+
+        {"token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI1M2M2MjA1NjAxZTBlYTNiNzk1MTVkOWQiLCJpYXQiOjE0MDU0OTMzMzQ1MjksImV4cCI6MTQwNTUxMTMzNDUyOX0.tzqgeGa6eSmwYiImb_fcYPjb4jRh3DIYnrsU8J_u41c"}
+
+### Get List [GET]
++ Request (application/json)
+    
+    + Header
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI1M2M2MDc4ZDAxZTBlYTNiNzk1MTVkOWMiLCJpYXQiOjE0MDU0ODkwNTIwMzYsImV4cCI6MTQwNTUwNzA1MjAzNn0.SABEI5TfvFExJz0T87eHFKZiEWF1BP-VwYKeI6yZ-sU
+
++ Response 200 (application/json)
+
+        [{"_id":"53c6078d01e0ea3b79515d9b","provider":"local","name":"Test User","email":"test@test.com","__v":0,"role":"user"},{"_id":"53c6078d01e0ea3b79515d9c","provider":"local","name":"Admin","email":"admin@admin.com","__v":0,"role":"admin"},{"_id":"53c6205601e0ea3b79515d9d","provider":"local","name":"cage","email":"cage@cage.com","__v":0,"role":"user"}]
+
+## User Password [/api/users/{id}/password]
+### Change Password [POST]
++ Request (application/json)
+    
+    + Header
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI1M2M2MDc4ZDAxZTBlYTNiNzk1MTVkOWMiLCJpYXQiOjE0MDU0ODkwNTIwMzYsImV4cCI6MTQwNTUwNzA1MjAzNn0.SABEI5TfvFExJz0T87eHFKZiEWF1BP-VwYKeI6yZ-sU
+
+    + Body
+
+            {"oldPassword":"admin","newPassword":"admin2"}
+
++ Response 200 (application/json)
+
+        OK
+
+## Import Bulk Users [/api/users/sheet]
+### [POST]
++ Request (application/json)
+    
+    + Header
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI1M2M2MDc4ZDAxZTBlYTNiNzk1MTVkOWMiLCJpYXQiOjE0MDU0ODkwNTIwMzYsImV4cCI6MTQwNTUwNzA1MjAzNn0.SABEI5TfvFExJz0T87eHFKZiEWF1BP-VwYKeI6yZ-sU
+
+    + Body
+
+            {"url":"xxx"}
+
++ Response (application/json)
+
+        OK
+
 
 # Group Qiniu
 Qiniu related apis
@@ -52,6 +85,7 @@ Qiniu related apis
 ## Upload token [/qiniu/uptoken]
 ### Get a upload token [GET]
 + Response 200 (application/json)
+
     + Body
     
             { "random": "l2o5rem8", "uptoken": "asdfzxverqwerdadsfadsf" }
@@ -59,6 +93,7 @@ Qiniu related apis
 ## Private Download token [/qiniu/signedUrl/{id}]
 
 + Parameters
+
     + id (required, string, ``)
     
 ### Get a signed url [GET]
@@ -68,5 +103,4 @@ Qiniu related apis
 
             "some/signed/url"
 
-    
-
+ 
