@@ -121,9 +121,10 @@ Qiniu related apis
     + Body
     
             {"name":"清华",
-            "subDomain":"qinghua",
+            "subDomain":"tsinghua",
             "background":"url",
-            "logo":"url"
+            "logo":"url",
+            "type":"大学"
             }
             
 + Response 200 (application/json)
@@ -139,7 +140,13 @@ Qiniu related apis
 ### Get User's Organization [GET]
 + Response 200 (application/json)
 
-        {"name": "清华"}  
+        {"_id":"xxxxxx",
+        "name":"清华",
+        "subDomain":"tsinghua",
+        "background":"url",
+        "logo":"url",
+        "type":"大学"
+        } 
 
 
 
