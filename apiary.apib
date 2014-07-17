@@ -270,6 +270,100 @@ Qiniu related apis
             {"_id":"xafwedsf","name":"高二（2）班"}]
         }
         
+# Group Lecture
+
+## Lecture Collection [/api/lectures]
+
+### Get all Lectures [GET]
+    
++ Response 200 (application/json)
+
+        [Lecture,Lecture,Lecture]
+
+### Create Lecture [POST]
+
++ Request (application/json)
+
+    + Header
+    
+            Auth:xxx
+    
+    + Body
+    
+            {"name":"第一课",
+            "courseId":"xzqwersd",
+            "thumbnail":"xxadf",
+            "info":"aswqersac",
+            }
+            
++ Response 200 (application/json)
+        
+        {"_id":"caeqwsdga",
+        "name":"第一课",
+        "courseId":"xzqwersd",
+        "thumbnail":"xxadf",
+        "info":"aswqersac",
+        "slides":[]
+        }
+
+## Lecture Detail [/api/lectures/{id}]
+
++ Parameters
+
+    + id (required, string, ``)
+
+### Get Lecture Detail [GET]
+
++ Response 200 (application/json)
+
+        {"_id":"caeqwsdga",
+        "name":"第一课",
+        "courseId":"xzqwersd",
+        "thumbnail":"xxadf",
+        "info":"aswqersac",
+        "slides":[{"thumb":"asdfc","raw":"qwer"},{"thumb":"asdfc","raw":"qwer"},{"thumb":"asdfc","raw":"qwer"}]
+        }
+
+### Update Lecture [PUT]
+
++ Request (application/json)
+
+    + Header
+    
+            Auth:xxx
+    
+    + Body
+    
+            {"name":"第一课",
+            "courseId":"xzqwersd",
+            "thumbnail":"xxadf",
+            "info":"aswqersac",
+            "slides":[{"thumb":"asdfc","raw":"qwer"},{"thumb":"asdfc","raw":"qwer"},{"thumb":"asdfc","raw":"qwer"}]
+            }
+            
++ Response 200 (application/json)
+        
+        {"_id":"caeqwsdga",
+        "name":"第一课",
+        "courseId":"xzqwersd",
+        "thumbnail":"xxadf",
+        "info":"aswqersac",
+        "slides":[{"thumb":"asdfc","raw":"qwer"},{"thumb":"asdfc","raw":"qwer"},{"thumb":"asdfc","raw":"qwer"}]
+        }
+
+### Delete Lecture [DELETE]
+This should delete all the slides image and thumbnail in storage.
+
++ Request (application/json)
+
+    + Header
+    
+            Auth:xxx
+            
++ Response 200 (application/json)
+        
+        OK
+
 # Group ClasseCourseOrder
 
 ## ClasseCourseOrder Collection [/api/classeCourseOrders]
