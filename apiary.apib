@@ -63,6 +63,32 @@ All apis need token except `post /api/user/`
 + Response 200 (application/json)
 
         OK
+        
+## Update User [/api/users/{id}]
+### Change User orgId, avatar [PUT]
+Only admin can change its orgId from empty to valid value.  
++ Request (application/json)
+    
+    + Header
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI1M2M2MDc4ZDAxZTBlYTNiNzk1MTVkOWMiLCJpYXQiOjE0MDU0ODkwNTIwMzYsImV4cCI6MTQwNTUwNzA1MjAzNn0.SABEI5TfvFExJz0T87eHFKZiEWF1BP-VwYKeI6yZ-sU
+
+    + Body
+
+            {"orgId":"qewrxf",
+            "avatar","xewqr",
+            }
+
++ Response 200 (application/json)
+
+        {"_id":"53c6078d01e0ea3b79515d9c",
+        "provider":"local",
+        "name":"Admin",
+        "email":"admin@admin.com",
+        "__v":0,
+        "orgId":"qewrxf",
+        "avatar","xewqr",
+        "role":"admin"}
 
 ## Bulk Users [/api/users/sheet]
 ### Import [POST]
@@ -92,11 +118,11 @@ Qiniu related apis
     
             { "random": "l2o5rem8", "uptoken": "asdfzxverqwerdadsfadsf" }
 
-## Private Download token [/qiniu/signedUrl/{id}]
+## Private Download token [/qiniu/signedUrl/{key}]
 
 + Parameters
 
-    + id (required, string, ``)
+    + key (required, string, ``)
     
 ### Get a signed url [GET]
 + Response 200 (application/json)
@@ -104,19 +130,7 @@ Qiniu related apis
     + Body
 
             "some/signed/url"
-            
-## Private Download token from Key [/qiniu/dntoken/{id}]
 
-+ Parameters
-
-    + id (required, string, `key`)
-    
-### Get a signed url [GET]
-+ Response 200 (application/json)
-
-    + Body
-
-            "some/signed/url"
 
 # Group Organization
 
