@@ -49,7 +49,7 @@ All apis need token except `post /api/user/`
         {"_id":"53c6205601e0ea3b79515d9d","provider":"local","name":"cage","email":"cage@cage.com","__v":0,"role":"user"}]
 
 ## User Password [/api/users/{id}/password]
-### Change Password [PUT]
+### Change Password [POST]
 + Request (application/json)
     
     + Header
@@ -64,7 +64,7 @@ All apis need token except `post /api/user/`
 
         OK
         
-## Update and delete User, show user profile [/api/users/{id}]
+## Update and delete User [/api/users/{id}]
 ### Change User orgId, avatar [PUT]
 Only admin can change its orgId from empty to valid value.  
 + Request (application/json)
@@ -108,41 +108,7 @@ Only admin can delete user.
         "orgId":"qewrxf",
         "avatar","xewqr",
         "role":"admin"}
-
-
-### Show user profile [GET]
-Show user profile info, including name, role, avatar
-+ Request (application/json)
-    
-    + Header
-
-            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI1M2M2MDc4ZDAxZTBlYTNiNzk1MTVkOWMiLCJpYXQiOjE0MDU0ODkwNTIwMzYsImV4cCI6MTQwNTUwNzA1MjAzNn0.SABEI5TfvFExJz0T87eHFKZiEWF1BP-VwYKeI6yZ-sU
-
-+ Response 200 (application/json)
         
-        {
-        "name":"Admin",
-        "avatar","xewqr",
-        "role":"admin"}
-
-## logged-in user info [/api/users/me]
-### Get logged in user information [GET]
-+ Request (application/json)
-    + Header
-
-            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI1M2M2MDc4ZDAxZTBlYTNiNzk1MTVkOWMiLCJpYXQiOjE0MDU0ODkwNTIwMzYsImV4cCI6MTQwNTUwNzA1MjAzNn0.SABEI5TfvFExJz0T87eHFKZiEWF1BP-VwYKeI6yZ-sU
-
-+ Response 200 (application/json)
-
-        {"_id":"53c6078d01e0ea3b79515d9c",
-        "provider":"local",
-        "name":"Admin",
-        "email":"admin@admin.com",
-        "__v":0,
-        "orgId":"qewrxf",
-        "avatar","xewqr",
-        "role":"admin"}
-
 ## Bulk Users [/api/users/sheet]
 ### Import [POST]
 + Request (application/json)
@@ -294,6 +260,22 @@ Qiniu related apis
             {"_id":"aeqwraf","name":"阿毛"}]
         }
 
+## Classe Detail [/api/classes/{id}/students]
+
++ Parameters
+
+    + id (required, string, ``)
+
+### Insert Classe Detail [POST]
+
++ Request (application/json)
+        {"key":"whatever/students.xlsx"}
+
++ Response 200 (application/json)
+
+        {"counter":100,
+        "failure":[]
+        }
 
 # Group Course
 
