@@ -90,6 +90,17 @@ Only admin can change its orgId from empty to valid value.
         "avatar","xewqr",
         "role":"admin"}
 
+## Delete User [/api/users/{id}]
+### Delete user [DELETE]
+Only admin can delete user.  
++ Request (application/json)
+    
+    + Header
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI1M2M2MDc4ZDAxZTBlYTNiNzk1MTVkOWMiLCJpYXQiOjE0MDU0ODkwNTIwMzYsImV4cCI6MTQwNTUwNzA1MjAzNn0.SABEI5TfvFExJz0T87eHFKZiEWF1BP-VwYKeI6yZ-sU
+
++ Response 204 (application/json)
+        
 ## Bulk Users [/api/users/sheet]
 ### Import [POST]
 + Request (application/json)
