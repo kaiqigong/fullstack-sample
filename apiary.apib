@@ -64,7 +64,7 @@ All apis need token except `post /api/user/`
 
         OK
         
-## Update User [/api/users/{id}]
+## Update and delete User [/api/users/{id}]
 ### Change User orgId, avatar [PUT]
 Only admin can change its orgId from empty to valid value.  
 + Request (application/json)
@@ -90,7 +90,6 @@ Only admin can change its orgId from empty to valid value.
         "avatar","xewqr",
         "role":"admin"}
 
-## Delete User [/api/users/{id}]
 ### Delete user [DELETE]
 Only admin can delete user.  
 + Request (application/json)
