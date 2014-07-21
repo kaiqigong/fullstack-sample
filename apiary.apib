@@ -260,7 +260,7 @@ Qiniu related apis
             {"_id":"aeqwraf","name":"阿毛"}]
         }
 
-## Classe Detail [/api/classes/{id}/students]
+## Students of Classe [/api/classes/{id}/students]
 
 + Parameters
 
@@ -335,8 +335,12 @@ Qiniu related apis
         
 # Group Lecture
 
-## Lecture Collection [/api/lectures]
+## Lecture Collection [/api/courses/:courseId/lectures]
 
++ Parameters
+
+    + courseId (required, string)
+    
 ### Get all Lectures [GET]
     
 + Response 200 (application/json)
