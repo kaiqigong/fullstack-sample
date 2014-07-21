@@ -108,7 +108,25 @@ Only admin can delete user.
         "orgId":"qewrxf",
         "avatar","xewqr",
         "role":"admin"}
-        
+
+## Current logged in user information [/api/users/me]
+### Get [GET]
++ Request (application/json)
+    + Header
+
+            Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI1M2M2MDc4ZDAxZTBlYTNiNzk1MTVkOWMiLCJpYXQiOjE0MDU0ODkwNTIwMzYsImV4cCI6MTQwNTUwNzA1MjAzNn0.SABEI5TfvFExJz0T87eHFKZiEWF1BP-VwYKeI6yZ-sU
+
++ Response 200 (application/json)
+
+        {"_id":"53c6078d01e0ea3b79515d9c",
+        "provider":"local",
+        "name":"Admin",
+        "email":"admin@admin.com",
+        "__v":0,
+        "orgId":"qewrxf",
+        "avatar","xewqr",
+        "role":"admin"}
+
 ## Bulk Users [/api/users/sheet]
 ### Import [POST]
 + Request (application/json)
